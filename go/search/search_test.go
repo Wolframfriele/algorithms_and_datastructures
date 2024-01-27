@@ -31,3 +31,22 @@ func TestBinarySearch(t *testing.T) {
 		}
 	}
 }
+
+type DropTestCase struct {
+	breaks []bool
+	want   int
+}
+
+var dropTestCases = []DropTestCase{
+	{breaks: []bool{false, false, true}, want: 2},
+	{breaks: []bool{false, false, false, false, false, false, false, false, false, false, true, true, true}, want: 10},
+}
+
+func TestCrystalBall(t *testing.T) {
+	for _, test := range dropTestCases {
+		got := CrystalBal(test.breaks)
+		if got != test.want {
+			t.Errorf("got %v, wanted %v", got, test.want)
+		}
+	}
+}
