@@ -13,3 +13,5 @@ rust/Cargo.lock
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
 
+# ignore the cache of the c language server
+.ccls-cache 
