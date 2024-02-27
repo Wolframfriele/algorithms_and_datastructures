@@ -65,3 +65,20 @@ func TestQueueThrice(t *testing.T) {
 		t.Errorf("Expected empty queue error")
 	}
 }
+
+func TestQueuePeekEmpty(t *testing.T) {
+	queue := new(Queue)
+	_, err := queue.peek()
+	if err == nil {
+		t.Errorf("Expected empty queue error")
+	}
+}
+
+func TestQueuePeek(t *testing.T) {
+	queue := new(Queue)
+	queue.append(1)
+	got, err := queue.peek()
+	if got != 1 || err != nil {
+		t.Errorf("Got %v want %v", got, 1)
+	}
+}
