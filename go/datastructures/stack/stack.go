@@ -6,7 +6,7 @@ import (
 
 type Node struct {
 	previous *Node
-	value    int
+	value    any
 }
 
 type Stack struct {
@@ -15,7 +15,7 @@ type Stack struct {
 	tail   *Node
 }
 
-func (s *Stack) append(val int) {
+func (s *Stack) append(val any) {
 	if s.length == 0 {
 		node := Node{value: val}
 		s.head = &node
@@ -28,7 +28,7 @@ func (s *Stack) append(val int) {
 	s.length += 1
 }
 
-func (s *Stack) pop() (int, error) {
+func (s *Stack) pop() (any, error) {
 	if s.length > 0 {
 		lastNode := s.head
 		s.head = lastNode.previous

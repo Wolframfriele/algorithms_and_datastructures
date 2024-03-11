@@ -6,7 +6,7 @@ import (
 
 type Node struct {
 	next  *Node
-	value int
+	value any
 }
 
 type Queue struct {
@@ -15,7 +15,7 @@ type Queue struct {
 	length int
 }
 
-func (q *Queue) append(val int) {
+func (q *Queue) enqueue(val any) {
 	if q.length == 0 {
 		node := Node{next: nil, value: val}
 		q.head = &node
@@ -28,7 +28,7 @@ func (q *Queue) append(val int) {
 	q.length += 1
 }
 
-func (q *Queue) pop() (int, error) {
+func (q *Queue) deque() (any, error) {
 	if q.length == 0 {
 		return 0, errors.New("No items in queue")
 	} else {
@@ -39,7 +39,7 @@ func (q *Queue) pop() (int, error) {
 	}
 }
 
-func (q *Queue) peek() (int, error) {
+func (q *Queue) peek() (any, error) {
 	if q.length == 0 {
 		return 0, errors.New("No items in queue")
 	} else {

@@ -31,3 +31,17 @@ func TestStack(t *testing.T) {
 		t.Error("Expected an error, got nil")
 	}
 }
+
+func TestStackDifferentType(t *testing.T) {
+	stack := new(Stack)
+	stack.append("1")
+	got, err := stack.pop()
+	want1 := "1"
+	if got != want1 {
+		t.Errorf("Got %v want %v", got, want1)
+	}
+	got, err = stack.pop()
+	if err == nil {
+		t.Error("Expected an error, got nil")
+	}
+}
